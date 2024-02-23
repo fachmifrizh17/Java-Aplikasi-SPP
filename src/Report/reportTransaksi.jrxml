@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3aa5ea7d-2786-472f-9d03-2250cf750bef">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="102"/>
+	<property name="ireport.y" value="14"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     transaksi_pembayaran.`no_transaksi` AS transaksi_pembayaran_no_transaksi,
+     transaksi_pembayaran.`nisn` AS transaksi_pembayaran_nisn,
+     transaksi_pembayaran.`tgl_bayar` AS transaksi_pembayaran_tgl_bayar,
+     transaksi_pembayaran.`bulan_awal` AS transaksi_pembayaran_bulan_awal,
+     transaksi_pembayaran.`bulan_akhir` AS transaksi_pembayaran_bulan_akhir,
+     transaksi_pembayaran.`jumlah_bayar` AS transaksi_pembayaran_jumlah_bayar
+FROM
+     `transaksi_pembayaran` transaksi_pembayaran]]>
+	</queryString>
+	<field name="transaksi_pembayaran_no_transaksi" class="java.lang.String"/>
+	<field name="transaksi_pembayaran_nisn" class="java.lang.String"/>
+	<field name="transaksi_pembayaran_tgl_bayar" class="java.sql.Date"/>
+	<field name="transaksi_pembayaran_bulan_awal" class="java.lang.String"/>
+	<field name="transaksi_pembayaran_bulan_akhir" class="java.lang.String"/>
+	<field name="transaksi_pembayaran_jumlah_bayar" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="118" y="29" width="339" height="20" uuid="f547e52c-1564-41b4-8716-44ea093af248"/>
+				<textElement>
+					<font fontName="Arial Black" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LAPORAN DATA PEMBAYARAN SISWA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="28" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="108" height="20" uuid="0e575c4d-473e-41ab-8a95-b8cc6dbfaca4"/>
+				<text><![CDATA[NO TRANSAKSI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="108" y="0" width="91" height="20" uuid="4a2a2a0f-9e55-47b2-b09f-80ede01286bd"/>
+				<text><![CDATA[NISN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="199" y="0" width="101" height="20" uuid="2bca855e-fce5-4ebc-8998-ca060b1a7a1d"/>
+				<text><![CDATA[TANGGAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="0" width="100" height="20" uuid="1459424d-8e9f-457c-8e48-2512c6b538fb"/>
+				<text><![CDATA[BULAN AWAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="0" width="100" height="20" uuid="6e70a2a0-b93c-4ac7-a7b1-7a3aeca694bd"/>
+				<text><![CDATA[BULAN AKHIR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="500" y="0" width="100" height="20" uuid="b106b3ec-be8b-4e53-bbf6-c403802e1b69"/>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="108" height="20" uuid="dfa00eab-f436-4bbe-83ae-51a5536e26ad"/>
+				<textFieldExpression><![CDATA[$F{transaksi_pembayaran_no_transaksi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="108" y="0" width="91" height="20" uuid="e78015e3-201b-42d1-95f3-c4562936852e"/>
+				<textFieldExpression><![CDATA[$F{transaksi_pembayaran_nisn}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="199" y="0" width="101" height="20" uuid="6fbfae20-788f-448e-bb64-f56abb966cc8"/>
+				<textFieldExpression><![CDATA[$F{transaksi_pembayaran_tgl_bayar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="0" width="100" height="20" uuid="c7628191-f099-45c9-b5a6-8bc011ffd61c"/>
+				<textFieldExpression><![CDATA[$F{transaksi_pembayaran_bulan_awal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="0" width="100" height="20" uuid="4794a5f3-bca5-4b7a-9342-6ec906f80637"/>
+				<textFieldExpression><![CDATA[$F{transaksi_pembayaran_bulan_akhir}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="0" width="100" height="20" uuid="3f0189d5-0c3b-470e-b98b-e4126a88226e"/>
+				<textFieldExpression><![CDATA[$F{transaksi_pembayaran_jumlah_bayar}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="67" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="682" y="34" width="80" height="20" uuid="bd11c679-2b46-43ee-858e-a43394e9d8f5"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="762" y="34" width="40" height="20" uuid="4ba7f558-e953-4377-ae12-f02f75873fc1"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

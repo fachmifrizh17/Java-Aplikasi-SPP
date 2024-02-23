@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="51310807-7aad-4d49-9fbf-711f9aa5000b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#000000">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#E6CFCF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="New Dataset 1" uuid="fc8e857a-8487-4d1e-8586-d9214f91480a">
+		<queryString language="SQL">
+			<![CDATA[SELECT
+     spp.`kode_angkatan` AS spp_kode_angkatan,
+     spp.`biaya_spp` AS spp_biaya_spp
+FROM
+     `spp` spp]]>
+		</queryString>
+		<field name="spp_kode_angkatan" class="java.lang.String"/>
+		<field name="spp_biaya_spp" class="java.lang.Integer"/>
+	</subDataset>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     spp.`kode_angkatan` AS spp_kode_angkatan,
+     spp.`biaya_spp` AS spp_biaya_spp
+FROM
+     `spp` spp]]>
+	</queryString>
+	<field name="spp_kode_angkatan" class="java.lang.String"/>
+	<field name="spp_biaya_spp" class="java.lang.Integer"/>
+	<variable name="spp_kode_angkatan_1" class="java.lang.Integer" resetType="Column" calculation="Count">
+		<variableExpression><![CDATA[$F{spp_kode_angkatan}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="180" y="34" width="175" height="25" uuid="7f5e3ea1-97bd-44fc-82dc-728dac8d7e14"/>
+				<textElement>
+					<font fontName="Arial Black" size="14"/>
+				</textElement>
+				<text><![CDATA[LAPORAN BIAYA SPP]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="23" y="0" width="100" height="20" uuid="ad4e1b5e-f71e-4bb0-93b6-5adecd5fbdb6"/>
+				<text><![CDATA[ANGKATAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="123" y="0" width="100" height="20" uuid="d87e7693-fe23-41f2-a4cf-53f3babbbc76"/>
+				<text><![CDATA[BIAYA SPP /BULAN]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="23" y="0" width="100" height="20" uuid="022bc1ce-92b1-490c-a24f-feb0f5d00f8f"/>
+				<textFieldExpression><![CDATA[$F{spp_kode_angkatan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="123" y="5" width="100" height="20" uuid="1d3f0a15-4962-41b8-b9c4-a9bb5a8acf78"/>
+				<textFieldExpression><![CDATA[$F{spp_biaya_spp}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="38" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="435" y="34" width="80" height="20" uuid="c5d6d3fb-b066-4dd2-91b8-a15c580ad0cc"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="515" y="34" width="40" height="20" uuid="b9964617-94f6-4d45-b8e2-cf78b198fe10"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
